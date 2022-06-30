@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:techblogtest/splash_screen.dart';
+
+import 'gen/assets.gen.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -19,7 +23,7 @@ class MyApp extends StatelessWidget {
         Locale('fa', ''), // Farsi
       ],
       theme: ThemeData(
-          fontFamily: 'DANAFONT',
+          fontFamily: 'DANA',
           textTheme: TextTheme(
             headline1: TextStyle(fontSize: 25, color: Colors.red),
           )),
@@ -43,17 +47,7 @@ class HomePageState extends State<HomePage> {
     // TODO: implement build
     return Scaffold(
         body: SafeArea(
-            child: Row(
-              children: [
-                Text(
-                  "سلام",
-                  style: Theme.of(context).textTheme.headline1,
-                ),
-                Text(
-                  "خوبی",
-                  style: Theme.of(context).textTheme.headline1,
-                ),
-              ],
-            )));
+child: SplashScreen(),
+        )        );
   }
 }
