@@ -21,6 +21,9 @@ class SolidColors{
   static const Color dividerColor = Color.fromARGB(255, 112, 112, 112);
   static const Color hintText = Color.fromARGB(255, 133, 133, 133);
   static const Color surface = Color.fromARGB(255, 242, 242, 242);
+  static const Color lightColor =Color.fromARGB(255, 255, 255, 255);
+  static const Color darkColor =Color.fromARGB(255, 0, 0, 0);
+
 
 }
 

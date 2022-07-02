@@ -13,8 +13,9 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
+  @override
   void initState(){
-    Future.delayed(Duration(seconds: 2)).then((value) =>
+    Future.delayed(const Duration(seconds: 1)).then((value) =>
   Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>
   MainScreen()
   ))
@@ -32,8 +33,8 @@ class _SplashScreenState extends State<SplashScreen> {
             Assets.images.logo.path,
             height: 64,
           ),
-          SizedBox(height: 50,),
-          SpinKitFoldingCube(
+          const SizedBox(height: 50,),
+          const SpinKitFoldingCube(
             color: SolidColors.primeryColor,
             size: 40.0,
           )
