@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:techblogtest/view/splash_screen.dart';
 
-import 'gen/assets.gen.dart';
 import 'my_colors.dart';
 
-
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -25,24 +25,36 @@ class MyApp extends StatelessWidget {
         Locale('fa', ''), // Farsi
       ],
       theme: ThemeData(
-
-
+          inputDecorationTheme: const InputDecorationTheme(
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  borderSide: BorderSide(width: 1.5, color: Colors.red),
+                  gapPadding: 100)),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.resolveWith((states) {
+              if (states.contains(MaterialState.pressed)) {
+                return SolidColors.primeryColor;
+              } else {
+                return SolidColors.primeryColor;
+              }
+            })),
+          ),
           fontFamily: 'dana',
           brightness: Brightness.light,
           textTheme: const TextTheme(
-
               headline1: TextStyle(
                   fontFamily: 'dana',
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
                   color: SolidColors.posterTitle),
-
               subtitle1: TextStyle(
                   fontFamily: 'dana',
                   fontSize: 14,
                   fontWeight: FontWeight.w300,
                   color: SolidColors.posterSubTitle),
-
               bodyText1: TextStyle(
                   fontFamily: 'dana',
                   fontSize: 13,
@@ -66,17 +78,16 @@ class MyApp extends StatelessWidget {
                   fontFamily: 'dana',
                   fontSize: 14,
                   color: SolidColors.hintText,
-                  fontWeight: FontWeight.w700)
-
-
-          )),
+                  fontWeight: FontWeight.w700))),
       title: "برنامه",
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -88,9 +99,9 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
+    return const Scaffold(
         body: SafeArea(
-child: SplashScreen(),
-        )        );
+      child: SplashScreen(),
+    ));
   }
 }

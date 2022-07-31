@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:techblogtest/models/fack_data.dart';
 import 'package:techblogtest/my_colors.dart';
-import 'package:techblogtest/my_strings.dart';
 import 'package:techblogtest/view/home_screen.dart';
 import 'package:techblogtest/view/profile_screen.dart';
+import 'package:techblogtest/view/registry_intro.dart';
 import '../gen/assets.gen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -17,14 +16,14 @@ class MainScreen extends StatefulWidget {
 }
 
 class MainScreenState extends State<MainScreen> {
-  int selectIndexPage=0;
+  int selectIndexPage = 0;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     double bodyMargin = size.width / 15;
 
     TextTheme textTheme = Theme.of(context).textTheme;
-    
+
     // TODO: implement build
 
     return Scaffold(
@@ -36,22 +35,28 @@ class MainScreenState extends State<MainScreen> {
       body: SafeArea(
         child: Stack(
           children: [
-            Center(
-                child: Positioned.fill(
-                    child: IndexedStack(
-                      index: selectIndexPage,
-                      children: [
-                        HomeScreen(size: size, bodyMargin: bodyMargin, textTheme: textTheme),
-                        ProfileScreen(size: size, bodyMargin: bodyMargin, textTheme: textTheme)
-                      ],
-                    ) 
-                )),
+            Positioned.fill(
+                child: IndexedStack(
+              index: selectIndexPage,
+              children: [
+            HomeScreen(
+                size: size, bodyMargin: bodyMargin, textTheme: textTheme),
+            const RegistryInto(),
+            ProfileScreen(
+                size: size, bodyMargin: bodyMargin, textTheme: textTheme)
+              ],
+            )),
             ButtonNavigation(
-                size: size, bodyMargin: bodyMargin, textTheme: textTheme, changeScreenPage: (int value){
-                  setState(() {
-                    selectIndexPage=value;
-                  },);
-            }),
+                size: size,
+                bodyMargin: bodyMargin,
+                textTheme: textTheme,
+                changeScreenPage: (int value) {
+                  setState(
+                    () {
+                      selectIndexPage = value;
+                    },
+                  );
+                }),
           ],
         ),
       ),
@@ -129,7 +134,6 @@ class ButtonNavigation extends StatelessWidget {
               children: [
                 IconButton(
                     onPressed: () {
-                      
                       changeScreenPage(0);
                     },
                     icon: Image.asset(
@@ -137,16 +141,17 @@ class ButtonNavigation extends StatelessWidget {
                       color: SolidColors.lightColor,
                     )),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      changeScreenPage(1);
+                    },
                     icon: Image.asset(
                       Assets.icons.write.path,
                       color: SolidColors.lightColor,
                     )),
                 IconButton(
                     onPressed: () {
-                      
-                        changeScreenPage(1);
-                      
+
+                      changeScreenPage(2);
                     },
                     icon: Image.asset(
                       Assets.icons.user.path,

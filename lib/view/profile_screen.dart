@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../cmy_component.dart';
 import '../gen/assets.gen.dart';
-import '../models/fack_data.dart';
 import '../my_colors.dart';
 import '../my_strings.dart';
 
