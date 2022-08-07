@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 
 import '../gen/assets.gen.dart';
 import '../models/fack_data.dart';
 import '../my_colors.dart';
+import '../my_component.dart';
 import '../my_strings.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -20,10 +20,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    late List myList=listTags;
     return SingleChildScrollView(
       child: Container(
-        padding: EdgeInsets.only(
-            right: size.width / 100, left: size.width / 100),
+        padding:
+            EdgeInsets.only(right: size.width / 100, left: size.width / 100),
         decoration: const BoxDecoration(color: Colors.white),
         child: Column(
           children: [
@@ -32,11 +33,9 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Container(
                     foregroundDecoration: const BoxDecoration(
-                        borderRadius:
-                        BorderRadius.all(Radius.circular(20)),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
                         gradient: LinearGradient(
-                            colors:
-                            GradiantColors.homePosterCoverGradiant,
+                            colors: GradiantColors.homePosterCoverGradiant,
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter)),
                     height: size.height / 4.20,
@@ -44,10 +43,10 @@ class HomeScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: SolidColors.darkColor,
                         borderRadius:
-                        const BorderRadius.all(Radius.circular(20)),
+                            const BorderRadius.all(Radius.circular(20)),
                         image: DecorationImage(
-                            image: AssetImage(
-                                homePagePosterDataMap["imagePath"]),
+                            image:
+                                AssetImage(homePagePosterDataMap["imagePath"]),
                             fit: BoxFit.cover))),
                 //TextInPoster
                 Positioned(
@@ -58,8 +57,7 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
-                          mainAxisAlignment:
-                          MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text(
                               homePagePosterDataMap["writer"] +
@@ -81,10 +79,8 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
                         Padding(
-                          padding:
-                          EdgeInsets.only(right: size.width / 12),
-                          child: Text(
-                              homePagePosterDataMap["title"].toString(),
+                          padding: EdgeInsets.only(right: size.width / 12),
+                          child: Text(homePagePosterDataMap["title"].toString(),
                               style: textTheme.headline1),
                         ),
                       ],
@@ -105,38 +101,8 @@ class HomeScreen extends StatelessWidget {
                   return Padding(
                     padding: EdgeInsets.fromLTRB(
                         0, 0, index == 0 ? bodyMargin : 10, 0),
-                    child: Container(
-                      height: size.height / 20,
-                      decoration: const BoxDecoration(
-                          gradient: LinearGradient(
-                              colors: GradiantColors.tags,
-                              begin: Alignment.centerRight,
-                              end: Alignment.centerLeft),
-                          borderRadius:
-                          BorderRadius.all(Radius.circular(20))),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: size.width / 30,
-                          ),
-                          ImageIcon(
-                            AssetImage(Assets.icons.hashtagicon.path),
-                            color: SolidColors.lightColor,
-                            size: 17,
-                          ),
-                          SizedBox(
-                            width: size.width / 30,
-                          ),
-                          Text(
-                            listTags[index].title.toString(),
-                            style: textTheme.headline1,
-                          ),
-                          SizedBox(
-                            width: size.width / 30,
-                          ),
-                        ],
-                      ),
-                    ),
+                    child: WidgetLIstHashTag(
+                        size: size, index: index, textTheme: textTheme,myList: myList,myGradiantColors: GradiantColors.tags,colorTextAndIcon: SolidColors.lightColor,),
                   );
                 },
               ),
@@ -148,8 +114,7 @@ class HomeScreen extends StatelessWidget {
             //bluePen
             Row(
               children: [
-                Padding(
-                    padding: EdgeInsets.only(right: size.width / 15)),
+                Padding(padding: EdgeInsets.only(right: size.width / 15)),
                 ImageIcon(
                   AssetImage(Assets.icons.bluePen.path),
                   color: SolidColors.colorTitle,
@@ -185,24 +150,18 @@ class HomeScreen extends StatelessWidget {
                             Stack(
                               children: [
                                 Container(
-                                  foregroundDecoration:
-                                  const BoxDecoration(
+                                  foregroundDecoration: const BoxDecoration(
                                       borderRadius:
-                                      BorderRadius.all(
-                                          Radius.circular(20)),
+                                          BorderRadius.all(Radius.circular(20)),
                                       color: Colors.red,
                                       gradient: LinearGradient(
-                                          colors: GradiantColors
-                                              .blogPost,
-                                          begin: Alignment
-                                              .bottomCenter,
-                                          end:
-                                          Alignment.topCenter)),
+                                          colors: GradiantColors.blogPost,
+                                          begin: Alignment.bottomCenter,
+                                          end: Alignment.topCenter)),
                                   height: size.height / 8,
                                   width: size.width / 3,
                                   decoration: BoxDecoration(
-                                      borderRadius:
-                                      const BorderRadius.all(
+                                      borderRadius: const BorderRadius.all(
                                           Radius.circular(20)),
                                       color: Colors.red,
                                       image: DecorationImage(
@@ -216,8 +175,7 @@ class HomeScreen extends StatelessWidget {
                                     left: size.width / 70,
                                     child: Row(
                                       mainAxisAlignment:
-                                      MainAxisAlignment
-                                          .spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           blogList[index].writer,
@@ -227,13 +185,11 @@ class HomeScreen extends StatelessWidget {
                                           children: [
                                             Text(
                                               blogList[index].views,
-                                              style:
-                                              textTheme.headline2,
+                                              style: textTheme.headline2,
                                             ),
                                             const Icon(
                                               Icons.remove_red_eye,
-                                              color: SolidColors
-                                                  .posterSubTitle,
+                                              color: SolidColors.posterSubTitle,
                                               size: 16,
                                             ),
                                           ],
@@ -267,8 +223,7 @@ class HomeScreen extends StatelessWidget {
             //microphon
             Row(
               children: [
-                Padding(
-                    padding: EdgeInsets.only(right: size.width / 15)),
+                Padding(padding: EdgeInsets.only(right: size.width / 15)),
                 ImageIcon(
                   AssetImage(Assets.icons.microphon.path),
                   color: SolidColors.colorTitle,
@@ -306,14 +261,12 @@ class HomeScreen extends StatelessWidget {
                                   height: size.height / 8,
                                   width: size.width / 3,
                                   decoration: BoxDecoration(
-                                      borderRadius:
-                                      const BorderRadius.all(
+                                      borderRadius: const BorderRadius.all(
                                           Radius.circular(20)),
                                       color: Colors.red,
                                       image: DecorationImage(
                                           image: NetworkImage(
-                                              podcastList[index]
-                                                  .imageUrl),
+                                              podcastList[index].imageUrl),
                                           fit: BoxFit.cover)),
                                 ),
                               ],

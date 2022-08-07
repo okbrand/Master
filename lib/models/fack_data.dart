@@ -17,6 +17,9 @@ List<HashTagModel> listTags=[
   HashTagModel(title: "برنامه نویسی"),
   HashTagModel(title: "شی گرایی"),
 ];
+List<HashTagModel> selListTags=[
+
+];
 List<BlogModel> blogList = [
   BlogModel(
       id: 1,
