@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:techblogtest/componnents/api_constant.dart';
-import 'package:techblogtest/models/Data_models.dart';
+
+import 'package:techblogtest/models/podcast_model.dart';
 import 'package:techblogtest/models/article_model.dart';
 import 'package:techblogtest/services/dio_service.dart';
 
@@ -25,6 +26,11 @@ class HomeScreenController extends GetxController {
       response.data['top_visited'].forEach((element) {
         topVisitedList.add(ArticleModel.fromJson(element));
       });
+      response.data['top_podcasts'].forEach((element) {
+        topPodcastList.add(PodcastModel.fromJson(element));
+      });
+
+
     }
   }
 }
