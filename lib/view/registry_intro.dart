@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:techblogtest/gen/assets.gen.dart';
-import 'package:techblogtest/my_colors.dart';
-import 'package:techblogtest/my_strings.dart';
+import 'package:techblogtest/componnents/my_colors.dart';
 import 'package:techblogtest/view/my_cats.dart';
 import 'package:validators/validators.dart';
+
+import '../componnents/my_strings.dart';
 
 class RegistryInto extends StatelessWidget {
   const RegistryInto({Key? key}) : super(key: key);

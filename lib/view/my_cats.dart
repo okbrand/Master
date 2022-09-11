@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:techblogtest/gen/assets.gen.dart';
 import 'package:techblogtest/models/fack_data.dart';
-import 'package:techblogtest/my_component.dart';
-import 'package:techblogtest/my_strings.dart';
 
-import '../my_colors.dart';
+
+import '../componnents/my_colors.dart';
+import '../componnents/my_component.dart';
+import '../componnents/my_strings.dart';
 
 class MyCats extends StatefulWidget {
   const MyCats({Key? key,

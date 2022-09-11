@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:techblogtest/my_colors.dart';
+import 'package:techblogtest/componnents/my_colors.dart';
 
 import '../gen/assets.gen.dart';
 import 'main_screen.dart';
@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState(){
     Future.delayed(const Duration(seconds: 1)).then((value) =>
   Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>
-  const MainScreen()
+  MainScreen()
   ))
     );
     super.initState();

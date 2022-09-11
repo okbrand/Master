@@ -1,7 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-import 'gen/assets.gen.dart';
-
+import '../gen/assets.gen.dart';
 import 'my_colors.dart';
 
 class MyDivider extends StatelessWidget {
@@ -14,16 +16,18 @@ class MyDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Divider(height: 1.5,
-      indent: size.width/6 ,
-      endIndent: size.width/6,
-      color:SolidColors.dividerColor,
+    return Divider(
+      height: 1.5,
+      indent: size.width / 6,
+      endIndent: size.width / 6,
+      color: SolidColors.dividerColor,
     );
   }
 }
 
 class WidgetLIstHashTag extends StatelessWidget {
-  const WidgetLIstHashTag({Key? key,
+  const WidgetLIstHashTag({
+    Key? key,
     required this.size,
     required this.index,
     required this.textTheme,
@@ -34,16 +38,15 @@ class WidgetLIstHashTag extends StatelessWidget {
   final Size size;
   final int index;
   final TextTheme textTheme;
-  final List myList ;
+  final List myList;
   final List<Color> myGradiantColors;
   final Color colorTextAndIcon;
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       height: size.height / 20,
-      decoration:  BoxDecoration(
+      decoration: BoxDecoration(
           gradient: LinearGradient(
               colors: myGradiantColors,
               begin: Alignment.centerRight,
@@ -72,5 +75,18 @@ class WidgetLIstHashTag extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+myLauncherUrl(String url ) async{
+  var myUri= Uri.parse(url);
+  if (await canLaunchUrl(myUri) ){
+
+    await launchUrl(myUri);
+
+  }
+  else{
+
+    log("this uri:  ${myUri.toString()} is not URL");
   }
 }

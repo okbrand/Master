@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
+import '../componnents/my_component.dart';
+import '../componnents/my_strings.dart';
 import '../gen/assets.gen.dart';
 import '../models/fack_data.dart';
-import '../my_colors.dart';
-import '../my_component.dart';
-import '../my_strings.dart';
+import '../componnents/my_colors.dart';
+import '../controller/home_screen_controller.dart';
+
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({
+   HomeScreen({
     Key? key,
     required this.size,
     required this.bodyMargin,
     required this.textTheme,
   }) : super(key: key);
+  HomeScreenController homeScreenController = Get.put(HomeScreenController());
 
   final Size size;
   final double bodyMargin;
@@ -139,7 +144,7 @@ class HomeScreen extends StatelessWidget {
                   height: size.height / 8,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: blogList.length,
+                    itemCount: homeScreenController.topVisitedList.length,
                     itemBuilder: (context, index) {
                       return Container(
                         padding: EdgeInsets.fromLTRB(
@@ -165,8 +170,7 @@ class HomeScreen extends StatelessWidget {
                                           Radius.circular(20)),
                                       color: Colors.red,
                                       image: DecorationImage(
-                                          image: NetworkImage(
-                                              blogList[index].imageUrl),
+                                          image: NetworkImage(homeScreenController.topVisitedList[index].image!.toString()),
                                           fit: BoxFit.cover)),
                                 ),
                                 Positioned(
@@ -178,13 +182,13 @@ class HomeScreen extends StatelessWidget {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          blogList[index].writer,
+                                          homeScreenController.topVisitedList[index].author.toString(),
                                           style: textTheme.headline2,
                                         ),
                                         Row(
                                           children: [
                                             Text(
-                                              blogList[index].views,
+                                              homeScreenController.topVisitedList[index].view.toString(),
                                               style: textTheme.headline2,
                                             ),
                                             const Icon(
@@ -206,7 +210,7 @@ class HomeScreen extends StatelessWidget {
                                 child: SizedBox(
                                     width: size.width / 3,
                                     child: Text(
-                                      blogList[index].title,
+                                      homeScreenController.topVisitedList[index].title.toString(),
                                       style: textTheme.headline4,
                                       overflow: TextOverflow.ellipsis,
                                       maxLines: 2,
