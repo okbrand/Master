@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../gen/assets.gen.dart';
@@ -88,5 +89,15 @@ myLauncherUrl(String url ) async{
   else{
 
     log("this uri:  ${myUri.toString()} is not URL");
+  }
+}
+class MySpinKit extends StatelessWidget {
+  const MySpinKit({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const SpinKitFadingCube(color: SolidColors.primeryColor,size: 50,);
   }
 }
