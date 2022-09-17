@@ -86,6 +86,7 @@ class _MyCatsState extends State<MyCats> {
                             bool pointer=false;
                             pointer = selMyList.contains(myList[index]);
                             print(pointer);
+                            print(myList[index].title.toString());
 
 
                             if (pointer==false) {

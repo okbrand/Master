@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:techblogtest/view/splash_screen.dart';
+import 'package:techblogtest/main_screen/articel_list_screen.dart';
+import 'package:techblogtest/main_screen/splash_screen.dart';
 
 import 'componnents/my_colors.dart';
 
@@ -80,7 +81,7 @@ class MyApp extends StatelessWidget {
                   color: SolidColors.hintText,
                   fontWeight: FontWeight.w700))),
       title: "برنامه",
-      home: const HomePage(),
+      home:  ArticelListScreen(),
     );
   }
 }

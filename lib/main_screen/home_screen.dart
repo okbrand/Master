@@ -113,7 +113,7 @@ class HomeScreen extends StatelessWidget {
                 height: size.height / 20,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: listTags.length,
+                  itemCount: homeScreenController.tagsList.length,
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: EdgeInsets.fromLTRB(

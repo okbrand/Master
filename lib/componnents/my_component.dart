@@ -2,6 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
+import 'package:techblogtest/componnents/text_style.dart';
+import 'package:techblogtest/controller/home_screen_controller.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../gen/assets.gen.dart';
@@ -67,7 +70,7 @@ class WidgetLIstHashTag extends StatelessWidget {
             width: size.width / 30,
           ),
           Text(
-            myList[index].title.toString(),
+            Get.find<HomeScreenController>().tagsList[index].title!,
             style: textTheme.headline1,
           ),
           SizedBox(
@@ -100,4 +103,32 @@ class MySpinKit extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SpinKitFadingCube(color: SolidColors.primeryColor,size: 50,);
   }
+}
+PreferredSize myAppbar(String title) {
+  return PreferredSize(
+    preferredSize: Size.fromHeight(80),
+    child: Padding(
+      padding: EdgeInsets.all(12),
+      child: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          Padding(padding: const EdgeInsets.only(left: 16),
+              child: Center(child: Text(title,style: appBarTextStyle,))),
+        ],
+        leading: Padding(padding: const EdgeInsets.only(left: 16),
+          child: Container(
+            height: 40,
+            width: 40,
+            decoration:
+            BoxDecoration(color: SolidColors.primeryColor.withBlue(100)
+                ,shape: BoxShape.circle),
+            child: const Icon(Icons.keyboard_arrow_right_rounded,size: 25,),
+
+
+          ),
+        ),
+      ),
+    ),
+  );
 }

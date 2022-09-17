@@ -7,8 +7,8 @@ import 'package:techblogtest/componnents/my_colors.dart';
 import 'package:techblogtest/componnents/my_component.dart';
 import 'package:techblogtest/componnents/my_strings.dart';
 import 'package:techblogtest/services/dio_service.dart';
-import 'package:techblogtest/view/home_screen.dart';
-import 'package:techblogtest/view/profile_screen.dart';
+import 'package:techblogtest/main_screen/home_screen.dart';
+import 'package:techblogtest/main_screen/profile_screen.dart';
 import 'package:techblogtest/view/registry_intro.dart';
 import '../gen/assets.gen.dart';
 
